@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="Contact - Sinobukhosi Investments">
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-background to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-light mb-8 sinobhukosi-text-gold tracking-wider">
+        CONTACT
+      </h1>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Contact Details -->
+          <div>
+            <h2 class="text-2xl font-light mb-8 text-white">
+              Get In Touch
+            </h2>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-medium text-primary mb-2">Phone</h3>
+                <p class="text-white">083 711 8686</p>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-medium text-primary mb-2">Email</h3>
+                <p class="text-white">info@sinobhukosi.co.za</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15 Minute Meeting -->
+          <div class="bg-secondary/20 p-8 rounded-lg">
+            <h3 class="text-2xl font-light mb-4 sinobhukosi-text-gold">
+              15 Minute Meeting
+            </h3>
+            <p class="text-white mb-4">15 min</p>
+            <p class="text-white/80 mb-6">
+              Schedule a brief consultation to discuss your investment needs and explore potential partnerships.
+            </p>
+            <a
+              href="/meeting"
+              class="inline-flex w-full justify-center bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md text-base font-medium transition-colors"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-20 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-light mb-4 sinobhukosi-text-gold uppercase tracking-wider">
+          Send Us A Message
+        </h2>
+        <p class="text-lg text-white/80 mb-8">
+          Thanks for getting in touch!
+        </p>
+      </div>
+      
+      <ContactForm client:load />
+    </div>
+  </section>
+</Layout>
+

@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="Sinobukhosi Investments - Welcome">
+  <!-- Hero Section with Video Background -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Video Placeholder -->
+    <div class="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/20" />
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-light mb-8 tracking-wider">
+        <span class="sinobhukosi-text-gold">WELCOME</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-light">
+        Sinobukhosi Investments is a wholly black-owned investment company focused on sustainable 
+        long-term growth and value creation through the provision of patient capital as well as 
+        through skills gained in the banking sector and in running our own business.
+      </p>
+      
+      <div class="mt-12">
+        <a
+          href="/contact"
+          class="inline-flex bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg rounded-md font-medium transition-colors"
+        >
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-light mb-4 sinobhukosi-text-gold uppercase tracking-wider">
+          Contact
+        </h2>
+        <p class="text-lg text-white/80 mb-8">
+          Thanks for getting in touch!
+        </p>
+      </div>
+      
+      <ContactForm client:load />
+    </div>
+  </section>
+</Layout>
+

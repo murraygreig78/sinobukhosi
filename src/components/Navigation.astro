@@ -1,0 +1,66 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/leadership", label: "Leadership" },
+  { path: "/portfolio", label: "Portfolio" },
+  { path: "/contact", label: "Contact" },
+];
+
+const isActive = (path: string) => {
+  if (path === "/") {
+    return currentPath === "/" || currentPath === "/index.html";
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 sinobhukosi-bg-dark border-b sinobhukosi-border-gold">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <div class="sinobhukosi-text-gold text-2xl font-bold tracking-wider">
+          SINOBHUKOSI
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <a
+            href={item.path}
+            class={`text-sm font-medium transition-colors hover:text-primary ${
+              isActive(item.path)
+                ? "sinobhukosi-text-gold"
+                : "text-white hover:sinobhukosi-text-gold"
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Button -->
+      <a
+        href="/meeting"
+        class="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors"
+      >
+        Book Meeting
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        class="md:hidden text-white hover:sinobhukosi-text-gold p-2"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,46 @@
+---
+import Navigation from '../components/Navigation.astro';
+import { Toaster } from '../components/ui/toaster';
+import { Toaster as Sonner } from '../components/ui/sonner';
+import { TooltipProvider } from '../components/ui/tooltip';
+import '../index.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Sinobukhosi Investments' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sinobukhosi Investments - A wholly black-owned investment company focused on sustainable long-term growth" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <TooltipProvider client:load>
+      <div class="min-h-screen sinobhukosi-bg-dark text-white">
+        <Navigation />
+        <main class="pt-16">
+          <slot />
+        </main>
+        <footer class="sinobhukosi-bg-dark border-t sinobhukosi-border-gold py-8">
+          <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+              <p class="text-sm text-muted-foreground">Tel: 083 711 8686</p>
+            </div>
+            <p class="text-sm text-muted-foreground">©2020 by Sinobhukosi.</p>
+          </div>
+        </footer>
+      </div>
+      <Toaster client:load />
+      <Sonner client:load />
+    </TooltipProvider>
+  </body>
+</html>
+

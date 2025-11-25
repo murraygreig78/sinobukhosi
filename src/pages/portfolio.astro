@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+
+const investmentCriteria = [
+  "Potential to attract foreign investment",
+  "Addresses key South African needs",
+  "Benefits from African growth",
+  "Non-highly regulated industries",
+  "ESG friendly",
+  "Globally competitive"
+];
+
+const focusSectors = [
+  "Agri-processing",
+  "Utilities",
+  "Telecoms Infrastructure", 
+  "Industrial Real Estate"
+];
+---
+
+<Layout title="Portfolio - Sinobukhosi Investments">
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-background to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-light mb-8 text-white uppercase tracking-wider">
+        Portfolio
+      </h1>
+    </div>
+  </section>
+
+  <!-- Investment Philosophy -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-light mb-8 sinobhukosi-text-gold uppercase tracking-wider">
+          Our Investment Philosophy
+        </h2>
+        
+        <p class="text-lg text-white leading-relaxed mb-12">
+          We cultivate sustainable partnerships by seeking alignment of interests, values, and integrity 
+          with our partners. Our approach focuses on empowering market leaders to achieve sustainable growth 
+          through strategic capital allocation and long-term collaboration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Criteria -->
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-light mb-8 text-center sinobhukosi-text-gold uppercase tracking-wider">
+          We Look To Invest In
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          {investmentCriteria.map((criteria) => (
+            <div class="flex items-center space-x-3">
+              <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+              <p class="text-white">{criteria}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus Sectors -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-light mb-8 text-center sinobhukosi-text-gold uppercase tracking-wider">
+          The Key Sectors That We Focus On:
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          {focusSectors.map((sector) => (
+            <div class="text-center p-6 bg-secondary/20 rounded-lg">
+              <h3 class="text-xl font-light text-white tracking-wider">{sector}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Portfolio Placeholder -->
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="grid md:grid-cols-3 gap-8">
+          {[1, 2, 3].map((client) => (
+            <div class="aspect-square bg-muted/20 rounded-lg flex items-center justify-center">
+              <div class="text-center text-muted-foreground">
+                <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                  </svg>
+                </div>
+                <p class="text-sm">Client {client}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Looking for Investor CTA -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-light mb-8 text-white">
+          Looking for an investor?
+        </h2>
+        
+        <div class="bg-secondary/20 p-8 rounded-lg mb-8">
+          <h3 class="text-xl font-light mb-4 sinobhukosi-text-gold">
+            15 Minute Meeting
+          </h3>
+          <p class="text-white mb-6">
+            Schedule a brief consultation to discuss your investment needs and explore potential partnerships.
+          </p>
+          <a
+            href="/meeting"
+            class="inline-flex bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md text-base font-medium transition-colors"
+          >
+            Book Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-light mb-4 sinobhukosi-text-gold uppercase tracking-wider">
+          Contact
+        </h2>
+        <p class="text-lg text-white/80 mb-8">
+          Thanks for getting in touch!
+        </p>
+      </div>
+      
+      <ContactForm client:load />
+    </div>
+  </section>
+</Layout>
+

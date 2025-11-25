@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="About - Sinobukhosi Investments">
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-background to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-light mb-8 sinobhukosi-text-gold tracking-wider">
+        PURPOSE
+      </h1>
+    </div>
+  </section>
+
+  <!-- Purpose Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg md:text-xl text-primary leading-relaxed font-light">
+          We are a family owned investment company that exists to create sustainable growth for future generations. 
+          Our focus is to strategically allocate capital that drives growth and achieve value creation through 
+          long term partnerships. We do this by investing in established businesses poised for growth and in 
+          need of a partner to reach the next step in their journey of growth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-light mb-8 text-center tracking-wider">
+          VALUES
+        </h2>
+        
+        <p class="text-lg text-muted-foreground leading-relaxed mb-12 text-center">
+          We look to invest in businesses that have potential to operate for generations to come. 
+          Businesses who support economic growth in South African and are key contributors to job creation.
+        </p>
+
+        <!-- Values Grid -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-light mb-8 text-white text-center tracking-wider">
+              We Value:
+            </h3>
+            
+            <div class="space-y-4 text-center">
+              <div class="text-xl font-light text-white tracking-wider">
+                Trusted Long-term partnerships
+              </div>
+              <div class="text-xl font-light text-white tracking-wider">
+                Integrity
+              </div>
+              <div class="text-xl font-light text-white tracking-wider">
+                Transparency
+              </div>
+              <div class="text-xl font-light text-white tracking-wider">
+                Trust
+              </div>
+              <div class="text-xl font-light text-white tracking-wider">
+                Results
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-primary/10 p-8 rounded-lg">
+            <div class="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-light mb-8 sinobhukosi-text-gold uppercase tracking-wider">
+          What We Offer
+        </h2>
+        
+        <p class="text-lg text-white leading-relaxed">
+          We bring to the table patient capital, corporate experience, skills and knowledge. 
+          We have operational experience having been entrepreneurs. If and where necessary, 
+          we bring transformation ownership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-light mb-4 sinobhukosi-text-gold uppercase tracking-wider">
+          Contact
+        </h2>
+        <p class="text-lg text-white/80 mb-8">
+          Thanks for getting in touch!
+        </p>
+      </div>
+      
+      <ContactForm client:load />
+    </div>
+  </section>
+</Layout>
+
