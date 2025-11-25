@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Contact - Sinobukhosi Investments">
@@ -70,7 +70,7 @@ import ContactForm from '../components/ContactForm';
         </p>
       </div>
       
-      <ContactForm client:load />
+      <ContactForm />
     </div>
   </section>
 </Layout>

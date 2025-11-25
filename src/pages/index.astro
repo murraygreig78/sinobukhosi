@@ -1,13 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Sinobukhosi Investments - Welcome">
   <!-- Hero Section with Video Background -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Video Placeholder -->
-    <div class="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/20" />
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img 
+        src="/images/hero-background-full.jpg" 
+        alt=""
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/20" />
+    </div>
     
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-7xl font-light mb-8 tracking-wider">
@@ -43,7 +50,7 @@ import ContactForm from '../components/ContactForm';
         </p>
       </div>
       
-      <ContactForm client:load />
+      <ContactForm />
     </div>
   </section>
 </Layout>

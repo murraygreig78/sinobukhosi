@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm.astro';
 
 const investmentCriteria = [
   "Potential to attract foreign investment",
@@ -145,7 +145,7 @@ const focusSectors = [
         </p>
       </div>
       
-      <ContactForm client:load />
+      <ContactForm />
     </div>
   </section>
 </Layout>

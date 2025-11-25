@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Leadership - Sinobukhosi Investments">
@@ -21,16 +21,11 @@ import ContactForm from '../components/ContactForm';
           <!-- Profile Image -->
           <div class="order-2 md:order-1">
             <div class="aspect-[3/4] bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden">
-              <div class="w-full h-full bg-muted/20 flex items-center justify-center">
-                <div class="text-center text-muted-foreground">
-                  <div class="w-24 h-24 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                  </div>
-                  <p class="text-sm">Professional Photo</p>
-                </div>
-              </div>
+              <img 
+                src="/images/luleka-masinda-full.jpg" 
+                alt="Luleka Masinda - Managing Director"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -79,7 +74,7 @@ import ContactForm from '../components/ContactForm';
         </p>
       </div>
       
-      <ContactForm client:load />
+      <ContactForm />
     </div>
   </section>
 </Layout>

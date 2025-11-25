@@ -1,9 +1,229 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import MeetingComponent from '../components/Meeting';
+
+const timeSlots = [
+  "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+  "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"
+];
 ---
 
 <Layout title="Book a Meeting - Sinobukhosi Investments">
-  <MeetingComponent client:load />
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-background to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-light mb-4 sinobhukosi-text-gold tracking-wider">
+        15 Minute Meeting
+      </h1>
+      <p class="text-lg text-white/80 max-w-2xl mx-auto">
+        Schedule your service to discuss investment opportunities and explore potential partnerships.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Date Selection -->
+          <div>
+            <h2 class="text-2xl font-light mb-6 text-white">
+              Select a Date and Time
+            </h2>
+            
+            <div class="bg-secondary/20 p-6 rounded-lg space-y-4">
+              <div>
+                <label for="meeting-date" class="block text-sm font-medium text-white mb-2">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  id="meeting-date"
+                  name="date"
+                  required
+                  min={new Date().toISOString().split('T')[0]}
+                  class="w-full px-3 py-2 bg-secondary border border-border rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              
+              <div>
+                <label for="meeting-time" class="block text-sm font-medium text-white mb-2">
+                  Time
+                </label>
+                <select
+                  id="meeting-time"
+                  name="time"
+                  required
+                  class="w-full px-3 py-2 bg-secondary border border-border rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select a time</option>
+                  {timeSlots.map((time) => (
+                    <option value={time}>{time}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Slots & Service Details -->
+          <div>
+            <h3 class="text-xl font-light mb-4 text-white">
+              Available Time Slots
+            </h3>
+            
+            <div class="grid grid-cols-3 gap-2 mb-8">
+              {timeSlots.map((time) => (
+                <button
+                  type="button"
+                  data-time={time}
+                  class="time-slot-btn px-3 py-2 text-sm rounded-md border border-border text-white hover:bg-primary/20 transition-colors"
+                >
+                  {time}
+                </button>
+              ))}
+            </div>
+
+            <!-- Service Details -->
+            <div class="bg-secondary/20 p-6 rounded-lg mb-6">
+              <h3 class="text-xl font-light mb-4 sinobhukosi-text-gold">
+                Service Details
+              </h3>
+              
+              <div class="space-y-3 text-white">
+                <div class="flex justify-between">
+                  <span>Duration:</span>
+                  <span>15 minutes</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Location:</span>
+                  <span>Virtual Meeting</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Time Zone:</span>
+                  <span>South Africa Standard Time (SAST)</span>
+                </div>
+              </div>
+            </div>
+
+            <form id="booking-form">
+              <input type="hidden" id="selected-date" name="date" />
+              <input type="hidden" id="selected-time" name="time" />
+              <button 
+                type="submit"
+                class="w-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md text-base font-medium transition-colors"
+              >
+                Book Meeting
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-light mb-6 text-white">
+          Contact Details
+        </h2>
+        
+        <div class="space-y-4">
+          <p class="text-white">
+            <span class="text-primary">Tel:</span> 083 711 8686
+          </p>
+          <p class="text-white">
+            <span class="text-primary">Email:</span> info@sinobhukosi.co.za
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
+<script>
+  // Time slot selection
+  const timeSlotButtons = document.querySelectorAll('.time-slot-btn');
+  const timeSelect = document.getElementById('meeting-time');
+  const selectedTimeInput = document.getElementById('selected-time');
+  
+  let selectedTime = '';
+  
+  timeSlotButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active state from all buttons
+      timeSlotButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-primary-foreground');
+        b.classList.add('border-border', 'text-white');
+      });
+      
+      // Add active state to clicked button
+      btn.classList.add('bg-primary', 'text-primary-foreground');
+      btn.classList.remove('border-border', 'text-white');
+      
+      // Update select and hidden input
+      selectedTime = btn.dataset.time || '';
+      if (timeSelect) timeSelect.value = selectedTime;
+      if (selectedTimeInput) selectedTimeInput.value = selectedTime;
+    });
+  });
+  
+  // Update hidden input when select changes
+  timeSelect?.addEventListener('change', (e) => {
+    selectedTime = e.target.value;
+    if (selectedTimeInput) selectedTimeInput.value = selectedTime;
+    
+    // Update button states
+    timeSlotButtons.forEach(btn => {
+      if (btn.dataset.time === selectedTime) {
+        btn.classList.add('bg-primary', 'text-primary-foreground');
+        btn.classList.remove('border-border', 'text-white');
+      } else {
+        btn.classList.remove('bg-primary', 'text-primary-foreground');
+        btn.classList.add('border-border', 'text-white');
+      }
+    });
+  });
+  
+  // Form submission
+  const bookingForm = document.getElementById('booking-form');
+  const dateInput = document.getElementById('meeting-date');
+  const selectedDateInput = document.getElementById('selected-date');
+  
+  // Update hidden date input when date changes
+  dateInput?.addEventListener('change', (e) => {
+    if (selectedDateInput) selectedDateInput.value = e.target.value;
+  });
+  
+  bookingForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(bookingForm);
+    const date = formData.get('date');
+    const time = formData.get('time');
+    
+    if (!date || !time) {
+      alert('Please select both date and time to book your meeting.');
+      return;
+    }
+    
+    // Here you would typically send to a server
+    alert(`Your 15-minute meeting has been scheduled for ${new Date(date).toLocaleDateString()} at ${time}.`);
+    
+    // Reset form
+    bookingForm.reset();
+    timeSlotButtons.forEach(btn => {
+      btn.classList.remove('bg-primary', 'text-primary-foreground');
+      btn.classList.add('border-border', 'text-white');
+    });
+    selectedTime = '';
+  });
+</script>
+
+<style>
+  /* Disable weekends in date picker */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+</style>
