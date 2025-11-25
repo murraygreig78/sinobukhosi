@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sinobhukosi Investment Company Design System */
+
+@layer base {
+  :root {
+/* Updated background color rgb(27, 38, 56) */
+    --background: 214 35% 16%; /* rgb(27, 38, 56) */
+    --foreground: 0 0% 95%; /* Light text */
+
+    --card: 214 35% 18%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 214 35% 18%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Gold/bronze accent color from original #b09e80 */
+    --primary: 35 25% 60%; /* Gold/bronze */
+    --primary-foreground: 214 35% 16%;
+
+    --secondary: 214 35% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+--muted: 214 35% 22%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 35 25% 60%; /* Gold accent */
+    --accent-foreground: 214 35% 16%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 35% 25%;
+    --input: 214 35% 20%;
+    --ring: 35 25% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for Sinobhukosi */
+    --sinobhukosi-gold: 35 25% 60%; /* #b09e80 */
+    --sinobhukosi-dark: 214 35% 16%; /* rgb(27, 38, 56) */
+    --sinobhukosi-light-gold: 35 35% 70%;
+    --sinobhukosi-text-muted: 0 0% 56%; /* #8F8F8F */
+  }
+
+}
+
+/* Custom utility classes */
+@layer components {
+  .sinobhukosi-gradient {
+    background: linear-gradient(135deg, hsl(var(--sinobhukosi-dark)), hsl(var(--sinobhukosi-dark)) 50%, hsl(var(--sinobhukosi-gold)) 100%);
+  }
+  
+  .sinobhukosi-text-gold {
+    color: hsl(var(--sinobhukosi-gold));
+  }
+  
+  .sinobhukosi-bg-dark {
+    background-color: hsl(var(--sinobhukosi-dark));
+  }
+  
+  .sinobhukosi-border-gold {
+    border-color: hsl(var(--sinobhukosi-gold));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
