@@ -15,6 +15,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Lato', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif'], // For headings (Avenir alternative)
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

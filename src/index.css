@@ -73,5 +73,19 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+
+  /* Use Montserrat as alternative to Avenir for headings and specific elements */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+  }
+
+  /* Apply Avenir alternative (Montserrat) to specific elements that might need it */
+  .avenir-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
   }
 }
